@@ -1,14 +1,34 @@
-@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Markazi+Text:wght@400..700&display=swap");
+/* @import "tailwindcss"; */
+
+html,
+body,
+#root {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-head: "Markazi Text", serif;
+  --font-text: "Karla", sans-serif;
+  --color-primary-1: #f4ce14;
+  --color-primary-2: #495e57;
+  --color-second-1: #ee9972;
+  --color-second-2: #ebdabb;
+  --color-highlight-1: #edefee;
+  --color-highlight-2: #333333;
+  --wf-bg: #f7f7f7;
+  --wf-white: #ffffff;
+  --wf-section-alt: #eeeeee;
+  --wf-border: #cccccc;
+  --wf-placeholder: #d4d4d4;
+  --wf-placeholder-dark: #aaaaaa;
+  --wf-label: #888888;
+  --wf-text: #333333;
+  --wf-button: #555555;
+  --wf-button-text: #ffffff;
+}
