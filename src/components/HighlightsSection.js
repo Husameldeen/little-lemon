@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Button from "./Button";
 import ImagePlace from "./ImagePlace";
 
@@ -24,13 +25,31 @@ const specials = [
 ];
 
 export default function HighlightsSection() {
+  const scrollRef = useRef(null);
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({
+      left: 300,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({
+      left: -300,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       style={{
-        width: "100%",
+        // width: "100%",
         background: "#FFFFFF",
-        marginTop: 60,
-        padding: "64px 80px",
+        position: "relative",
+        // margin: "0 auto",
+        marginTop: 100,
+        padding: "0 13%",
       }}
     >
       <div
@@ -63,13 +82,19 @@ export default function HighlightsSection() {
 
       {/* Horizontal scroll container */}
       <div
+        ref={scrollRef}
+        className="hide-scrollbar"
         style={{
           display: "flex",
-          justifyContent: "center",
-          gap: 30,
-          // overflowX: "auto",
-          paddingBottom: 12,
-          // scrollbarWidth: "none",
+          gap: 40,
+          overflowX: "auto",
+          paddingBottom: 16,
+          // Hide scrollbar
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          // Nice scrolling
+          scrollBehavior: "smooth",
+          scrollSnapType: "x mandatory",
         }}
       >
         {specials.map((item) => (
@@ -84,6 +109,10 @@ export default function HighlightsSection() {
               borderRadius: "16px 16px 0 0",
               overflow: "hidden",
               flexShrink: 0,
+              // Snap cards into position
+              scrollSnapAlign: "start",
+              // Slight hover effect
+              transition: "transform 0.25s ease",
             }}
           >
             <ImagePlace src={item.src} width={"100%"} height={"100%"} />
@@ -163,21 +192,55 @@ export default function HighlightsSection() {
             </div>
           </div>
         ))}
-        {/* Scroll indicator */}
-        <div
-          style={{
-            minWidth: 40,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#AAAAAA",
-            fontSize: 24,
-            cursor: "pointer",
-          }}
-        >
-          ›
-        </div>
       </div>
+      {/* Scroll indicator */}
+      <button
+        onClick={scrollRight}
+        style={{
+          position: "absolute",
+          right: "8%",
+          top: "50%",
+          transform: "translateY(-50%)",
+
+          width: 44,
+          height: 44,
+          border: "none",
+          borderRadius: "50%",
+
+          background: "white",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
+
+          fontSize: 28,
+          cursor: "pointer",
+          zIndex: 2,
+          textAlign: "center",
+        }}
+      >
+        &rarr;
+      </button>
+      <button
+        onClick={scrollLeft}
+        style={{
+          position: "absolute",
+          left: "8%",
+          top: "50%",
+          transform: "translateY(-50%)",
+
+          width: 44,
+          height: 44,
+          border: "none",
+          borderRadius: "50%",
+
+          background: "white",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
+
+          fontSize: 28,
+          cursor: "pointer",
+          zIndex: 2,
+        }}
+      >
+        &larr;
+      </button>
     </section>
   );
 }
