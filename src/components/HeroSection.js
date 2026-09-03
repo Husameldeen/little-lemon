@@ -15,7 +15,6 @@ export default function HeroSection() {
       }}
     >
       <div>
-        {/* <SectionLabel>Hero Section</SectionLabel> */}
         <div style={{ marginTop: 10 }}>
           <h1
             style={{

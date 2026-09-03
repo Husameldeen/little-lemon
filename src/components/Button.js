@@ -2,6 +2,7 @@ export default function Button({ children, color, bgColor }) {
   return (
     <button
       style={{
+        all: "unset",
         fontFamily: "var(--font-text)",
         fontSize: "1.2rem",
         fontWeight: 600,
